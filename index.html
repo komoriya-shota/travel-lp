@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>無料で旅する新しい生き方</title>
 
-  <!-- Tailwind CDN（簡易運用） -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Fonts -->
@@ -13,7 +13,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- Brand color -->
   <meta name="theme-color" content="#4D96FF" />
 
   <!-- Base styles -->
@@ -26,11 +25,19 @@
     .icon-card { transition: transform .25s ease, box-shadow .25s ease; }
     .icon-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
     .faq-open .faq-arrow { transform: rotate(180deg); }
+
+    /* ---- 日本語タイポ改善 ---- */
+    .cjk { line-break: strict; }
+    @supports (word-break: auto-phrase) { .cjk { word-break: auto-phrase; } }
+    .balance { text-wrap: balance; }   /* 見出しの気持ちよい改行 */
+    .pretty  { text-wrap: pretty; }    /* 孤立1～2文字の行を減らす */
+    .measure { max-width: 68ch; }      /* 本文の行長を適正化 */
+    .nowrap  { white-space: nowrap; }  /* 改行させたくない塊に */
   </style>
 
   <!-- SEO -->
   <meta name="description" content="無料旅行と週払いアフィリエイトで月7桁も狙える、新しい旅の選択肢。無料説明会で仕組みを全公開。" />
-  <link rel="canonical" href="https://line.me/R/ti/p/@846sibgz" /> <!-- TODO: 本番URLに変更 -->
+  <link rel="canonical" href="https://example.com/" /> <!-- TODO: 公開URLに置換 -->
   <meta name="robots" content="index,follow" />
 
   <!-- OGP / Twitter -->
@@ -38,13 +45,13 @@
   <meta property="og:site_name" content="無料で旅する新しい生き方" />
   <meta property="og:title" content="旅と収入、両方を叶える。無料で旅する新しい生き方" />
   <meta property="og:description" content="無料旅行×週払いアフィリエイトの仕組みを公開。説明会は勧誘なし。" />
-  <meta property="og:url" content="https://example.com/" /> <!-- TODO: 本番URLに変更 -->
-  <meta property="og:image" content="https://example.com/ogp.jpg" /> <!-- TODO: OGP画像URL -->
+  <meta property="og:url" content="https://example.com/" />            <!-- TODO: 公開URLに置換 -->
+  <meta property="og:image" content="https://example.com/ogp.jpg" />   <!-- TODO: OGP画像URLに置換 -->
   <meta property="og:locale" content="ja_JP" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://example.com/ogp.jpg" /> <!-- TODO: 同上 -->
+  <meta name="twitter:image" content="https://example.com/ogp.jpg" />  <!-- TODO: 同上 -->
 
   <!-- Icons / PWA（任意） -->
   <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -52,25 +59,10 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
 
-  <!-- LCP対策：ヒーロー画像を先読み（パスを本体と同じ相対パスに） -->
+  <!-- LCP対策：ヒーロー画像を先読み（パスは実ファイルに合わせる） -->
   <link rel="preload" as="image" href="./image/mwr2.jpg"
         imagesrcset="./image/mwr2.jpg 1280w, ./image/mwr2.jpg 800w"
         imagesizes="100vw" />
-        <style>
-  /* 日本語の改行品質アップ（対応ブラウザではフレーズ単位で折返し） */
-  .cjk { line-break: strict; }
-  @supports (word-break: auto-phrase) { .cjk { word-break: auto-phrase; } }
-
-  /* 大きい見出しのバランス良い改行（未対応ブラウザは無視されても害なし） */
-  .balance { text-wrap: balance; }
-
-  /* 本文を読みやすい長さに（行の最大幅を制御） */
-  .measure { max-width: 68ch; }   /* お好みで 60–72ch の範囲で */
-
-  /* 不自然に改行させたくない語句に使う */
-  .nowrap { white-space: nowrap; }
-</style>
-
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased selection:bg-blue-200/60 selection:text-blue-900">
@@ -91,12 +83,12 @@
                 ring-1 ring-white/10 shadow-2xl
                 px-5 py-6 md:px-10 md:py-8">
 
-      <h1 class="cjk balance text-[clamp(28px,6vw,56px)] font-bold tracking-normal leading-[1.25] md:leading-[1.15]">
+      <h1 class="cjk balance pretty text-[clamp(28px,6vw,56px)] font-bold tracking-normal leading-[1.25] md:leading-[1.15]">
         旅と収入、両方を叶える。一生無料で旅ができる新しい生き方とは？
       </h1>
 
-      <p class="cjk measure mt-4 text-[clamp(14px,3.5vw,22px)] leading-relaxed opacity-95 mx-auto">
-        「無料旅行」と<span class="nowrap">週払いアフィリエイト</span>で、月7桁も目指せる方法を公開!!
+      <p class="cjk pretty measure mt-4 text-[clamp(14px,3.5vw,22px)] leading-relaxed opacity-95 mx-auto">
+        「無料旅行」と <span class="nowrap">週払いアフィリエイト</span> で、月7桁も目指せる方法を公開!!
       </p>
 
       <div class="mt-7">
@@ -113,19 +105,18 @@
   </div>
 
   <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white">
-    <span class="text-3xl arrow-down">↓</span>
+    <span class="text-3xl arrow-down" aria-hidden="true">↓</span>
   </div>
 </section>
-
 
 <!-- 節約金額 -->
 <section id="savings" class="py-16 md:py-24 px-4 bg-[#E0F7FA]">
   <div class="container mx-auto max-w-screen-xl">
     <div class="text-center">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-[#00796B]">
-        会員様は、2024年に<br class="md:hidden">合計で<span class="text-red-500">4億2千万円</span>以上を節約！
+      <h2 class="cjk balance pretty text-2xl sm:text-3xl md:text-4xl font-bold text-[#00796B]">
+        会員様は、2024年に 合計で <span class="nowrap">4億2千万円</span> 以上を節約！
       </h2>
-      <p class="mt-4 text-lg text-gray-700 max-w-prose mx-auto">
+      <p class="cjk measure mt-4 text-lg text-gray-700 mx-auto">
         これは、世界中の会員様が当サービスを通じて実現した節約額です。
       </p>
     </div>
@@ -133,24 +124,24 @@
     <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="icon-card bg-white rounded-xl p-6 text-center">
         <p class="text-sm text-gray-500">平均節約/予約</p>
-        <p class="mt-1 text-3xl font-bold text-[#00796B]">¥18,400</p>
+        <p class="mt-1 text-3xl font-bold text-[#00796B]"><span class="nowrap">¥18,400</span></p>
       </div>
       <div class="icon-card bg-white rounded-xl p-6 text-center">
         <p class="text-sm text-gray-500">年間平均宿泊数</p>
-        <p class="mt-1 text-3xl font-bold text-[#00796B]">12泊</p>
+        <p class="mt-1 text-3xl font-bold text-[#00796B]"><span class="nowrap">12泊</span></p>
       </div>
       <div class="icon-card bg-white rounded-xl p-6 text-center">
         <p class="text-sm text-gray-500">会員総予約件数</p>
-        <p class="mt-1 text-3xl font-bold text-[#00796B]">22,000件</p>
+        <p class="mt-1 text-3xl font-bold text-[#00796B]"><span class="nowrap">22,000件</span></p>
       </div>
       <div class="icon-card bg-white rounded-xl p-6 text-center">
         <p class="text-sm text-gray-500">最大割引率</p>
-        <p class="mt-1 text-3xl font-bold text-[#00796B]">70%OFF</p>
+        <p class="mt-1 text-3xl font-bold text-[#00796B]"><span class="nowrap">70%OFF</span></p>
       </div>
     </div>
 
-    <p class="text-sm text-gray-600 mt-6 text-center">
-      ※節約額（日本円）は一部の宿泊予約とVIP会員割引の差額によって計算。※1ドル=150円換算。
+    <p class="cjk measure text-sm text-gray-600 mt-6 text-center">
+      ※節約額（日本円）は一部の宿泊予約とVIP会員割引の差額によって計算。※<span class="nowrap">1ドル=150円</span>換算。
     </p>
   </div>
 </section>
@@ -158,8 +149,8 @@
 <!-- 顧客の悩み -->
 <section id="problem-solution" class="py-16 md:py-24 px-4 bg-white">
   <div class="container mx-auto max-w-screen-xl">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center text-[#FFC145]">
-      「こんなお悩み、ありませんか？」
+    <h2 class="cjk balance pretty text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center text-[#FFC145]">
+      こんなお悩み、ありませんか？
     </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="icon-card bg-white rounded-xl p-6 text-center">
@@ -184,7 +175,7 @@
       </div>
     </div>
 
-    <p class="mt-10 text-xl md:text-2xl text-gray-700 font-bold leading-relaxed text-center max-w-prose mx-auto">
+    <p class="cjk measure mt-10 text-xl md:text-2xl text-gray-700 font-bold leading-relaxed text-center mx-auto">
       もし、これらが全部スッと解決して、もっと自由に旅ができたら…？
     </p>
   </div>
@@ -193,13 +184,13 @@
 <!-- 旅の価値 -->
 <section id="travel-value" class="py-16 md:py-24 px-4 bg-white">
   <div class="container mx-auto max-w-screen-xl">
-    <h2 class="cjk balance text-2xl sm:text-3xl md:text-4xl font-bold mb-10 text-center text-[#4BC0C0]">
-  ～旅が人生の幸福度を高める理由～
-</h2>
+    <h2 class="cjk balance pretty text-2xl sm:text-3xl md:text-4xl font-bold mb-10 text-center text-[#4BC0C0]">
+      ～旅が人生の幸福度を高める理由～
+    </h2>
 
     <div class="flex flex-col md:flex-row items-center gap-10">
       <div class="md:w-1/2">
-        <div class="text-lg md:text-xl text-gray-700 space-y-6 max-w-prose">
+        <div class="cjk text-lg md:text-xl text-gray-700 space-y-6 max-w-prose">
           <p>旅行は新しい価値観に触れ、人生を豊かにする最高の自己投資です。</p>
           <p>心身をリフレッシュし、創造性や日々のパフォーマンスも向上します。</p>
           <p class="font-bold">旅の経験は、何物にも代えがたい「一生の財産」です。</p>
@@ -209,8 +200,8 @@
       <!-- 画像 -->
       <div class="md:w-1/2 w-full">
         <img
-          src="./image/mwr4.jpg"
-          alt="旅行を楽しむ人々のイメージ"
+          src="./image/mwr4.jpg"  <!-- TODO: 実画像に合わせる -->
+          alt="海を背景に旅行を楽しむ人々のイメージ"
           class="w-full aspect-video object-cover rounded-xl shadow-lg"
           loading="lazy"
         />
@@ -222,7 +213,7 @@
 <!-- ベネフィット -->
 <section id="benefits" class="py-16 md:py-24 px-4 bg-[var(--brand)] text-white">
   <div class="container mx-auto max-w-screen-xl">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-12 text-center drop-shadow-md">
+    <h2 class="cjk balance pretty text-2xl sm:text-3xl md:text-4xl font-bold mb-12 text-center drop-shadow-md">
       あなたの旅を、もっとシンプルに、豊かにする2つの価値
     </h2>
 
@@ -232,14 +223,14 @@
           <div class="text-4xl mr-3">✈️</div>
           <h3 class="text-2xl font-bold text-[var(--brand)]">旅行を最大限に楽しむ</h3>
         </div>
-        <ul class="space-y-4 text-lg">
+        <ul class="cjk space-y-4 text-lg">
           <li class="flex">
             <span class="text-2xl mr-3 text-[var(--brand)]">✓</span>
             <span><span class="font-bold">面倒な宿探しは不要。</span><br>厳選された高品質ホテル・リゾートをいつでも。</span>
           </li>
           <li class="flex">
             <span class="text-2xl mr-3 text-[var(--brand)]">✓</span>
-            <span><span class="font-bold">年間40万円以上の旅行券。</span><br>費用を気にせず最高の旅へ。</span>
+            <span><span class="font-bold">年間 <span class="nowrap">40万円</span> 以上の旅行券。</span><br>費用を気にせず最高の旅へ。</span>
           </li>
         </ul>
       </div>
@@ -249,14 +240,14 @@
           <div class="text-4xl mr-3">💼</div>
           <h3 class="text-2xl font-bold text-[var(--brand)]">旅をしながら収入を得る</h3>
         </div>
-        <ul class="space-y-4 text-lg">
+        <ul class="cjk space-y-4 text-lg">
           <li class="flex">
             <span class="text-2xl mr-3 text-[var(--brand)]">✓</span>
             <span><span class="font-bold">週払いアフィリエイトで安定収入。</span><br>スマホで完結、楽しく副収入。</span>
           </li>
           <li class="flex">
             <span class="text-2xl mr-3 text-[var(--brand)]">✓</span>
-            <span><span class="font-bold">月数万円〜7桁も可能。</span><br>成功ノウハウをZoomで公開。</span>
+            <span><span class="font-bold">月数万円〜<span class="nowrap">7桁</span>も可能。</span><br>成功ノウハウを <span class="nowrap">Zoom</span> で公開。</span>
           </li>
         </ul>
       </div>
@@ -273,24 +264,24 @@
 <!-- お客様の声 -->
 <section id="testimonials" class="py-16 md:py-24 px-4 bg-gray-50">
   <div class="container mx-auto max-w-screen-xl">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-10 text-center text-[#4BC0C0]">
+    <h2 class="cjk balance pretty text-2xl sm:text-3xl md:text-4xl font-bold mb-10 text-center text-[#4BC0C0]">
       「旅と人生が変わった」お客様の声
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div class="icon-card bg-white rounded-xl p-8 text-center">
-        <img src="./image/aaa3.jpg" alt="お客様A" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" loading="lazy">
+        <img src="./image/aaa3.jpg" alt="お客様Aの顔写真" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" loading="lazy">
         <p class="font-bold text-lg">N様 (30代 / 会社員)</p>
-        <p class="text-sm mt-2 text-gray-600">"旅を楽しみながら収入を得る発想に衝撃。妻との旅行が増えました！"</p>
+        <p class="text-sm mt-2 text-gray-600">「旅を楽しみながら収入を得る発想に衝撃。妻との旅行が増えました！」</p>
       </div>
       <div class="icon-card bg-white rounded-xl p-8 text-center">
-        <img src="./image/aaa1.jpg" alt="お客様B" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" loading="lazy">
+        <img src="./image/aaa1.jpg" alt="お客様Bの顔写真" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" loading="lazy">
         <p class="font-bold text-lg">M様 (40代 / 主婦)</p>
-        <p class="text-sm mt-2 text-gray-600">"家族旅行も自己成長も両立。負担感がなく続けられます。"</p>
+        <p class="text-sm mt-2 text-gray-600">「家族旅行も自己成長も両立。負担感がなく続けられます。」</p>
       </div>
       <div class="icon-card bg-white rounded-xl p-8 text-center">
-        <img src="./image/aaa2.jpg" alt="お客様C" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" loading="lazy">
+        <img src="./image/aaa2.jpg" alt="お客様Cの顔写真" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover" loading="lazy">
         <p class="font-bold text-lg">Y様 (20代 / 学生)</p>
-        <p class="text-sm mt-2 text-gray-600">"予算で諦めていたけど世界が広がった！友達と一緒に卒業旅行で海外も行く予定です！"</p>
+        <p class="text-sm mt-2 text-gray-600">「予算で諦めていたけど世界が広がった！友達と一緒に卒業旅行で海外も行く予定です！」</p>
       </div>
     </div>
   </div>
@@ -299,27 +290,31 @@
 <!-- 申込みの流れ -->
 <section id="flow" class="py-16 md:py-24 px-4 bg-white">
   <div class="container mx-auto max-w-screen-xl">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center text-[#9966FF]">
+    <h2 class="cjk balance pretty text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-center text-[#9966FF]">
       ～無料説明会ご参加までの流れ～
     </h2>
-    <p class="text-gray-600 text-center max-w-prose mx-auto mb-10">お申し込みは、たった3つのステップで完了します。</p>
+    <p class="cjk measure text-gray-600 text-center mx-auto mb-10">
+      お申し込みは、たった <span class="nowrap">3つ</span> のステップで完了します。
+    </p>
 
     <div class="flex flex-col md:flex-row items-stretch justify-center gap-8">
       <div class="flex-1 text-center">
         <div class="mx-auto w-24 h-24 grid place-items-center rounded-full bg-[#9966FF] text-white text-3xl mb-4 shadow-lg">1</div>
-        <p class="text-lg font-semibold">zoom予約公式LINE追加</p>
-        <p class="text-sm text-gray-500">わずか10秒で完了</p>
+        <p class="text-lg font-semibold">
+          <span class="nowrap">Zoom予約</span> <span class="nowrap">公式LINE</span> 追加
+        </p>
+        <p class="text-sm text-gray-500">わずか <span class="nowrap">10秒</span> で完了</p>
       </div>
-      <div class="hidden md:block w-px bg-gray-200"></div>
+      <div class="hidden md:block w-px bg-gray-200" aria-hidden="true"></div>
       <div class="flex-1 text-center">
         <div class="mx-auto w-24 h-24 grid place-items-center rounded-full bg-[#9966FF] text-white text-3xl mb-4 shadow-lg">2</div>
         <p class="text-lg font-semibold">日程確定のご案内</p>
         <p class="text-sm text-gray-500">メールにて詳細を送付</p>
       </div>
-      <div class="hidden md:block w-px bg-gray-200"></div>
+      <div class="hidden md:block w-px bg-gray-200" aria-hidden="true"></div>
       <div class="flex-1 text-center">
         <div class="mx-auto w-24 h-24 grid place-items-center rounded-full bg-[#9966FF] text-white text-3xl mb-4 shadow-lg">3</div>
-        <p class="text-lg font-semibold">Zoom説明会に参加</p>
+        <p class="text-lg font-semibold"><span class="nowrap">Zoom</span>説明会に参加</p>
         <p class="text-sm text-gray-500">ご自宅からお気軽に</p>
       </div>
     </div>
@@ -335,7 +330,7 @@
 <!-- FAQ -->
 <section id="faq" class="py-16 md:py-24 px-4 bg-gray-50">
   <div class="container mx-auto max-w-screen-md">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center text-gray-800">
+    <h2 class="cjk balance pretty text-2xl sm:text-3xl md:text-4xl font-bold mb-8 text-center text-gray-800">
       よくあるご質問
     </h2>
 
@@ -406,14 +401,14 @@
 <!-- CTA -->
 <section id="cta" class="py-16 md:py-24 px-4 bg-[var(--cta)] text-white text-center">
   <div class="container mx-auto max-w-screen-md">
-    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight drop-shadow-md">
-      「いつか行きたい」を<br>　　「いつでも行ける」へ。
+    <h2 class="cjk balance pretty text-3xl sm:text-4xl md:text-5xl font-bold mb-6 leading-tight drop-shadow-md">
+      「いつか行きたい」を<br class="sm:hidden">「いつでも行ける」へ。
     </h2>
     <a href="https://line.me/R/ti/p/@846sibgz" class="inline-block bg-white text-[var(--cta)] hover:bg-gray-100 font-bold text-lg md:text-xl py-4 px-10 rounded-full shadow-lg transition-transform active:scale-95 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-white/40">
       無料説明会に予約して特別な情報を受け取る
     </a>
     <p class="mt-5 text-sm opacity-95 drop-shadow-md">
-      ご予約はフォームまたは公式LINEで受け付けています。
+      ご予約はフォームまたは <span class="nowrap">公式LINE</span> で受け付けています。
     </p>
   </div>
 </section>
